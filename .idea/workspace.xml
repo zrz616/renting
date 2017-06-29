@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4cfbdc8-8b83-4f2f-92e4-3e6a550c6ecd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/houses/urls.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/api.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/calls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/migrations/0002_emailverifyrecode.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/migrations/0003_auto_20170308_1308.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/migrations/0004_auto_20170310_2319.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Users/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img1_FIIb5oA.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img1_lEUOiqT.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img1_skYTgiQ.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img1_t9hb0Uh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img3_24QYLQs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/04/img8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_2oRdy5n.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_Exu8IoG.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_IGKv0IQ.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_XkBdNQO.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_geroW3K.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/bigimg_gf7lMLY.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/img2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/media/house/2017/06/img3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/api.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/migrations/0002_auto_20170310_2319.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/migrations/0003_auto_20170412_0712.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/houses/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/zrz616.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/zrz616.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/content/content.vue" afterPath="$PROJECT_DIR$/frontend/src/components/content/content.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/header/header.vue" afterPath="$PROJECT_DIR$/frontend/src/components/header/header.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/popUpForm/login.vue" afterPath="$PROJECT_DIR$/frontend/src/components/popUpForm/login.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/popUpForm/register.vue" afterPath="$PROJECT_DIR$/frontend/src/components/popUpForm/register.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/page/list.vue" afterPath="$PROJECT_DIR$/frontend/src/page/list.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/renting/settings.py" afterPath="$PROJECT_DIR$/renting/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/renting/urls.py" afterPath="$PROJECT_DIR$/renting/urls.py" />
-    </list>
+    <list default="true" id="a4cfbdc8-8b83-4f2f-92e4-3e6a550c6ecd" name="Default" comment="" />
     <ignored path="renting.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -124,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/header/header.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+            <state relative-caret-position="161">
+              <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -139,6 +75,16 @@
                 <element signature="n#style#0;n#div#0;n#div#0;n#router-link#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -207,6 +153,7 @@
         <option value="$PROJECT_DIR$/frontend/src/components/popUpForm/login.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/popUpForm/register.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/header/header.vue" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -271,100 +218,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -780,13 +633,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/renting/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Lib/tokenize.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -1074,7 +920,7 @@
         <state relative-caret-position="968">
           <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1087,22 +933,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/Users/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1492">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-          <folding>
-            <element signature="e#86#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/Users/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
-            <element signature="e#23#52#0" expanded="true" />
+            <element signature="e#23#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1138,7 +974,7 @@
         <state relative-caret-position="207">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
-            <element signature="e#642#683#0" expanded="true" />
+            <element signature="e#642#683#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1148,7 +984,7 @@
         <state relative-caret-position="301">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
-            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#0#70#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1170,16 +1006,6 @@
         <state relative-caret-position="-274">
           <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/popUpForm/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="62" column="57" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
-          <folding>
-            <element signature="e#1807#1839#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,10 +1038,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/Users/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+          <folding>
+            <element signature="e#86#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/popUpForm/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/header/header.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+        <state relative-caret-position="161">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1226,6 +1070,14 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#router-link#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
