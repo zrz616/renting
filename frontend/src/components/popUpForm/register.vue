@@ -63,7 +63,7 @@
             flushCaptcha () {
                 let self = this;
                 reqwest({
-                    url: 'http://localhost:8000/api/new_captcha',
+                    url: 'http://localhost:8000/api/v1.0/new_captcha',
                     type: 'json',
                     method: 'get',
                     success (resp) {
@@ -78,7 +78,7 @@
                 self.flushCaptcha();
                 if (self.password === self.confirmed_password) {
                     reqwest({
-                        url: 'http://localhost:8000/api/created_user',
+                        url: 'http://localhost:8000/api/v1.0/created_user',
                         type: 'json',
                         method: 'post',
                         data: {
@@ -102,7 +102,7 @@
             LogIn () {
                 let self = this;
                 reqwest({
-                    url: 'http://localhost:8000/api/token-auth',
+                    url: 'http://localhost:8000/api/v1.0/token-auth',
                     type: 'json',
                     method: 'POST',
                     data: {

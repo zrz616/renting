@@ -9,7 +9,7 @@
                 <div class="ui grid">
                     <!--左边开始-->
                     <div class="four wide column shaixuan">
-                        <div class="ui shaixuan">
+                        <div @click="submit" class="ui shaixuan">
                           筛选
                         </div>
                         <div class="ui basic segment leixing">
@@ -20,8 +20,8 @@
                                 <div class="inline fields">
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                        <input type="radio" name="frequency" checked="checked">
-                                        <label>整租</label>
+                                            <input type="radio" name="frequency" checked="checked">
+                                            <label>整租</label>
                                         </div>
                                     </div>
                                     <div class="field">
@@ -89,52 +89,10 @@
                             </div>
                             <div class="ui form" style="margin-top:15px; margin-left:15px;">
                                 <div class="grouped fields">
-                                    <div class="field">
+                                    <div v-for="device in device_list" class="field">
                                         <div class="ui checkbox">
-                                        <input type="checkbox" name="example">
-                                        <label>独立卫生间</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>独立阳台</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>厨房</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>淋浴</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>空调</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>电视</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>网络</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" name="example">
-                                            <label>暖气</label>
+                                        <input v-model="device.active" type="checkbox" name="example">
+                                        <label>{{ device.device_name }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -285,6 +243,11 @@
                 this.house_list.sort((a, b) => {
                     return b.price - a.price;
                 });
+            },
+            submit () {
+                this.device_list.forEach((elem) => {
+                    console.log(elem.active);
+                });
             }
         },
         components: {
@@ -295,13 +258,25 @@
             this.search_school = this.$route.params.school_name;
             let self = this;
             reqwest({
-                url: 'http://127.0.0.1:8000/api/house_cards/' + self.$route.params.school_name,
+                url: 'http://127.0.0.1:8000/api/v1.0/house_cards/' + self.$route.params.school_name,
                 type: 'json',
                 // method默认是get
                 method: 'GET',
                 success (resp) {
                     console.log(resp);
                     self.house_list = resp;
+                }
+            });
+            reqwest({
+                url: 'http://127.0.0.1:8000/api/v1.0/devices',
+                type: 'json',
+                method: 'GET',
+                success (resp) {
+                    console.log(resp);
+                    self.device_list = resp;
+                    self.device_list.forEach((elem) => {
+                        elem.active = false;
+                    });
                 }
             });
         }

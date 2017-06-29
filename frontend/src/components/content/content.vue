@@ -21,100 +21,20 @@
                 </div>
             </div>
         </div>
-            <!--<div class="ui three column grid in-displaywindow">-->
-                 <!--first item -->
-                <!--<div class="column in-displaywindow">-->
-                    <!--<div class="ui card in-displaywindow">-->
-                        <!--<a class="image in-card">-->
-                            <!--<a class="label in-card">温馨两居</a>-->
-                            <!--<img src="/static/image/租房项目切图/1首页/img1.png" alt="" />-->
-                        <!--</a>-->
-                        <!--<div class="content in-card">-->
-                            <!--<a class="header in-card" href="#">人民大学附近房源</a>-->
-                            <!--<div class="ui divider in-card"></div>-->
-                            <!--<div class="description in-card">-->
-                                <!--宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; second item &ndash;&gt;-->
-                <!--<div class="column in-displaywindow">-->
-                    <!--<div class="ui card in-displaywindow">-->
-                        <!--<a class="image in-card">-->
-                            <!--<a class="label in-card">朝南</a>-->
-                            <!--<img src="/static/image/租房项目切图/1首页/img2.png" alt="" />-->
-                        <!--</a>-->
-                        <!--<div class="content in-card">-->
-                            <!--<a class="header in-card" href="#">清华大学附近房源</a>-->
-                            <!--<div class="ui divider in-card"></div>-->
-                            <!--<div class="description in-card">-->
-                                <!--宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; third item &ndash;&gt;-->
-                <!--<div class="column in-displaywindow">-->
-                    <!--<div class="ui card in-displaywindow">-->
-                        <!--<a class="image in-card">-->
-                            <!--<a class="label in-card">舒适一居</a>-->
-                            <!--<img src="/static/image/租房项目切图/1首页/img3.png" alt="" />-->
-                        <!--</a>-->
-                        <!--<div class="content in-card">-->
-                            <!--<a class="header in-card" href="#">北京大学附近房源</a>-->
-                            <!--<div class="ui divider in-card"></div>-->
-                            <!--<div class="description in-card">-->
-                                <!--宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!-- second row -->
+        <div class="ui container displaywindow">
             <h1 class="ui header in-displaywindow">毗邻学校周边</h1>
             <div class="ui three column grid in-displaywindow">
                 <!-- first item -->
-                <div class="column in-displaywindow">
-                    <div class="ui card in-displaywindow">
+                <div v-for="school in fav_school" class="column in-displaywindow">
+                    <div @click="submit(school.school_name)" class="ui card in-displaywindow">
                         <a class="image in-card">
-                            <img src="/static/image/租房项目切图/1首页/img4.png" alt="" />
+                            <img :src="school.school_front_image_url" alt="" />
                         </a>
                         <div class="content in-card">
-                            <a class="header in-card" href="#">北京大学附近房源</a>
+                            <a class="header in-card" >{{ school.school_name }}</a>
                             <div class="ui divider in-card"></div>
                             <div class="description in-card">
-                                宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- second item -->
-                <div class="column in-displaywindow">
-                    <div class="ui card in-displaywindow">
-                        <a class="image in-card">
-                            <img src="/static/image/租房项目切图/1首页/img5.png" alt="" />
-                        </a>
-                        <div class="content in-card">
-                            <a class="header in-card" href="#">清华大学附近房源</a>
-                            <div class="ui divider in-card"></div>
-                            <div class="description in-card">
-                                宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- third item -->
-                <div class="column in-displaywindow">
-                    <div class="ui card in-displaywindow">
-                        <a class="image in-card">
-                            <img src="/static/image/租房项目切图/1首页/img6.png" alt="" />
-                        </a>
-                        <div class="content in-card">
-                            <a class="header in-card" href="#">北京邮电大学附近房源</a>
-                            <div class="ui divider in-card"></div>
-                            <div class="description in-card">
-                                宇宙中心五道口附近，方便出行、购物，适合陪读、考研、校外住宿。
+                                {{ school.advantage }}
                             </div>
                         </div>
                     </div>
@@ -129,18 +49,30 @@
     export default {
         data () {
             return {
-                fav_houses: ''
+                fav_houses: '',
+                fav_school: ''
             };
         },
         methods: {
+            submit (school) {
+                this.$router.push({name: 'list', params: {'school_name': school}});
+            },
             show () {
                 let self = this;
                 reqwest({
-                    url: 'http://localhost:8000/api/index_show',
+                    url: 'http://localhost:8000/api/v1.0/index_house_cards',
                     type: 'json',
                     method: 'GET',
                     success (resp) {
                         self.fav_houses = resp;
+                    }
+                });
+                reqwest({
+                    url: 'http://localhost:8000/api/v1.0/index_school_cards',
+                    type: 'json',
+                    method: 'GET',
+                    success (resp) {
+                        self.fav_school = resp;
                     }
                 });
             }
@@ -171,7 +103,7 @@
         /*note: height is uncessary for a container*/
         /*height: 753px;*/
         /*note: better to use padding for a container than margin*/
-        padding-top: 60px;
+        padding-top: 30px;
         margin: 0;
     }
 
@@ -202,6 +134,10 @@
 
     .image.in-card {
 
+    }
+
+    .image.in-card img {
+        height: 110px !important;
     }
 
     .label.in-card {

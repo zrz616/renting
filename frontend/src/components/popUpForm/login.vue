@@ -60,7 +60,7 @@
             LogIn () {
                 let self = this;
                 reqwest({
-                    url: 'http://localhost:8000/api/token-auth',
+                    url: 'http://localhost:8000/api/v1.0/token-auth',
                     type: 'json',
                     method: 'POST',
                     data: {

@@ -16,31 +16,13 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views.generic import TemplateView
-from rest_framework.authtoken import views
-
-from Users.views import UserLoginView, UserRegisterView
-from Users.api import login_status, flush_captcha, create_account
-# from houses.views import house_list, house_detail
-from houses.api import house_cards, index_cards
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^captcha/', include('captcha.urls')),
 
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
     # user
-    url(r'^login/$', UserLoginView.as_view(), name='login'),
-    url(r'^register/$', UserRegisterView.as_view(), name='register'),
-
-    url(r'^api/token-auth$', views.obtain_auth_token),
-    # TODO: 在前端处理更佳
-    url(r'^api/login_status$', login_status),
-    url(r'^api/created_user$', create_account),
-    url(r'^api/new_captcha$', flush_captcha),
+    url(r'^', include('Users.urls')),
     # house
-    # url(r'^house_list/$', house_list),
-    # url(r'^house_detail/$', house_detail),
-    url(r'^api/index_show', index_cards),
-    url(r'^api/house_cards/(?P<school>.+)$', house_cards),
+    url(r'^', include('houses.urls'))
 ]
