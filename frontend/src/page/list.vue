@@ -245,6 +245,7 @@
         data () {
             return {
                 house_list: [1, 2, 3],
+                device_list: '',
                 paginate: ['house_list'],
                 search_school: ''
             };
