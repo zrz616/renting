@@ -85,7 +85,7 @@
                         </div>
                         <div class="ui basic segment leixing">
                             <div class="ui" style="margin-left:15px;">
-                                按户型 <i class="angle yellow right icon" style="margin-left:10px;"></i>
+                                按设施 <i class="angle yellow right icon" style="margin-left:10px;"></i>
                             </div>
                             <div class="ui form" style="margin-top:15px; margin-left:15px;">
                                 <div class="grouped fields">
@@ -165,8 +165,8 @@
                                 按价格
                                 <img src="/static/image/down_icon.png" style="height:13px;width:13px; margin-left:5px;" alt="" />
                                 <div class="menu">
-                                  <div class="item">底到高</div>
-                                  <div class="item">高到底</div>
+                                  <div @click="sorted_with_price" class="item">底到高</div>
+                                  <div @click="reversed_with_price" class="item">高到底</div>
                                 </div>
                               </div>
                             </div>
@@ -251,13 +251,38 @@
         },
         methods: {
             sorted_with_distance () {
-                this.house_list.sort((a, b) => {
-                    return a.position.distance - b.position.distance;
+                let self = this;
+                this.house_list = this.house_list.sort((a, b) => {
+                    // console.log(a.position[0].distance);
+                    let indexA = 0;
+                    let indexB = 0;
+                    a.position.forEach((elem, index) => {
+                        if (elem.school === self.search_school) {
+                            indexA = index;
+                        }
+                    });
+                    b.position.forEach((elem, index) => {
+                        if (elem.school === self.search_school) {
+                            indexB = index;
+                        }
+                    });
+                    return a.position[indexA].distance - b.position[indexB].distance;
                 });
+                console.log(this.house_list);
             },
             sorted_with_praise () {
                 this.house_list.sort((a, b) => {
                     return a.favorite_nums - b.favorite_nums;
+                });
+            },
+            sorted_with_price () {
+                this.house_list.sort((a, b) => {
+                    return a.price - b.price;
+                });
+            },
+            reversed_with_price () {
+                this.house_list.sort((a, b) => {
+                    return b.price - a.price;
                 });
             }
         },
