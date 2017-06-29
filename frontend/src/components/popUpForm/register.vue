@@ -1,17 +1,22 @@
 <template>
-    <div v-show=copyActive class="ui view">
-        <div @click="switchWindow" class="ui active dimmer"></div>
+    <div class="ui view">
+        <div @click="$router.go(-1)" class="ui active dimmer"></div>
         <div class="ui register container">
             <form class="ui form" method="post" action="register">
-                <div class="ui text menu">
+                <div :class="text_class" class="ui text menu">
                     <div class="menu login">
                         注册
                     </div>
-                    <div @click="switchWindow" class="ui image close_right">
+                    <div @click="$router.go(-1)" class="ui image close_right">
                         <img src="/static/image/close_icon2.png" alt="" />
                     </div>
                 </div>
                 <div class="ui view yellow_login"></div>
+                <div v-if="errors" class="login-errors">
+                    <div v-for="(error, name) in errors">
+                        {{name}} : {{error[0]}}
+                    </div>
+                </div>
                 <div class="ui divider"></div>
                 <div class="field">
                     <input type="text" v-model='email' name="email" placeholder="邮箱">
@@ -42,24 +47,19 @@
     import Cookies from 'js-cookie';
     import reqwest from 'reqwest';
     export default {
-        props: ['active'],
         data () {
             return {
-                copyActive: this.active,
                 username: '',
                 password: '',
                 email: '',
                 confirmed_password: '',
                 captcha: '',
                 captcha_url: '',
-                captcha_key: ''
+                captcha_key: '',
+                errors: ''
             };
         },
         methods: {
-            switchWindow () {
-                this.copyActive = !this.copyActive;
-                this.$emit('switch-register-active');
-            },
             flushCaptcha () {
                 let self = this;
                 reqwest({
@@ -89,6 +89,9 @@
                             'captcha_0': self.captcha_key,
                             'captcha_1': self.captcha
                         },
+                        error (err) {
+                            self.errors = JSON.parse(err['response']);
+                        },
                         success (resp) {
                             console.log(resp);
                             self.LogIn();
@@ -111,22 +114,10 @@
                         console.log(self.username);
                         Cookies.set('token', resp.token);
                         Cookies.set('username', self.username);
-                        self.$emit('register-success');
-                        self.copyActive = false;
+                        self.$emit('login-success');
+                        self.$router.go(-1);
                     }
                 });
-            }
-        },
-        watch: {
-            active (val) {
-                if (this.active === true) {
-                    this.copyActive = val;
-                }
-            },
-            copyActive (val) {
-                if (this.copyActive === false) {
-                    this.$emit('switch-active');
-                }
             }
         },
         mounted () {
@@ -155,6 +146,10 @@
         z-index: 1001;
 
     }
+    .ui.error.text.menu {
+        margin-bottom: 10%;
+        padding-bottom: 0;
+    }
     /*登录*/
     .ui.text.menu > .menu.login {
         font-family: SourceHanSansSC-Normal;
@@ -164,7 +159,7 @@
         margin-left: 8px;
     }
     /*叉号按钮*/
-    .ui.text.menu > .ui.image.close_right {
+    .ui.text.menu .ui.image.close_right {
         margin-left: 380px;
         margin-top: 0px;
     }
@@ -180,6 +175,13 @@
     .ui.form > .ui.divider {
         width: 440px;
         margin-top: -18px;
+    }
+    /*错误提示*/
+    .ui.form > .login-errors {
+        display: block;
+        position: absolute;
+        top: 7%;
+        color: darkred;
     }
     /*输入框*/
     .ui.form > .field {

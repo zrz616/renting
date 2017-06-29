@@ -4,8 +4,8 @@
             <div class="ui borderless menu in-searchpanel">
                 <!-- searchbox -->
 
-                <div class="ui search selection dropdown in-searchpanel" >
-                    <div class="ui form" >
+                <div class="ui input in-searchpanel" >
+<!--                     <div class="ui form" >
                         <div class="field">
                             <select style="height: 63px;-moz-appearance: none;-webkit-appearance: none;">
                                 <option value="2">清华大学</option>
@@ -13,7 +13,8 @@
                                 <option value="0">北京五道口男子篮球学院</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
+                    <input v-model="school" type="text" placeholder="Search...">
                     <!--<input type="hidden" name="school">-->
                     <!--<i class="dropdown icon in-dropdown-searchpanel">-->
                         <!--<img class="image-dropdown in-dropdown-searchpanel" src="/static/image/租房项目切图/1首页/triangle_icon.png" alt="" />-->
@@ -28,7 +29,7 @@
                     <!--</div>-->
                 </div>
                 <!-- searchbutton -->
-                <div class="ui button in-searchpanel">
+                <div @click="submit" class="ui button in-searchpanel">
                     搜索
                 </div>
             </div>
@@ -37,6 +38,18 @@
 </template>
 
 <script>
+    export default {
+        data () {
+            return {
+                school: ''
+            };
+        },
+        methods: {
+            submit () {
+                this.$router.push({name: 'list', params: {'school_name': this.school}});
+            }
+        }
+    };
 </script>
 
 <style>
@@ -71,7 +84,7 @@
         margin: 0;
     }
 
-    .ui.search.selection.dropdown.in-searchpanel {
+    .ui.input.in-searchpanel {
         width: 458px;
         height: 63px;
         background-color: #ffffff;

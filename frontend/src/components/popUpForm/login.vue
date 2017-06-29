@@ -1,19 +1,24 @@
 <template>
-    <div v-show=copyActive class="ui view">
-        <div @click="switchWindow" class="ui active dimmer"></div>
+    <div class="ui view">
+        <div @click="$router.go(-1)" class="ui active dimmer"></div>
         <div class="ui login container">
             <form class="ui form">
-                <div class="ui text menu">
+                <div :class="text_class" class="ui text menu">
                     <div class="menu login">
                         登录
                     </div>
-                    <div @click="switchWindow" class="ui image close_right">
-                        <img src="/static/image/close_icon2.png" alt="" />
+                        <div @click="$router.go(-1)" class="ui image close_right">
+                            <img src="/static/image/close_icon2.png" alt="" />
+                        </div>
+                </div>
+                <div v-if="errors" class="login-errors">
+                    <div v-for="(error, name) in errors">
+                        {{name}} : {{error[0]}}
                     </div>
                 </div>
                 <div class="ui divider"></div>
                 <div class="ui view yellow_login"></div>
-                
+
                 <div class="field">
                     <input v-model='username' type="text"  placeholder="Username">
                 </div>
@@ -35,27 +40,23 @@
                 <i class="chevron inverted right icon"></i>
             </button>
         </div>
-    </div> 
-    
+    </div>
+
 </template>
 
 <script>
     import Cookies from 'js-cookie';
     import reqwest from 'reqwest';
     export default {
-        props: ['active'],
         data () {
             return {
-                copyActive: this.active,
+                text_class: '',
                 username: '',
-                password: ''
+                password: '',
+                errors: ''
             };
         },
         methods: {
-            switchWindow () {
-                this.copyActive = !this.copyActive;
-                this.$emit('switch-active');
-            },
             LogIn () {
                 let self = this;
                 reqwest({
@@ -66,27 +67,19 @@
                         username: self.username,
                         password: self.password
                     },
+                    error (err) {
+                        self.text_class = 'error';
+                        self.errors = JSON.parse(err['response']);
+                    },
                     success (resp) {
                         console.log(resp);
                         console.log(self.username);
                         Cookies.set('token', resp.token);
                         Cookies.set('username', self.username);
                         self.$emit('login-success');
-                        self.copyActive = false;
+                        self.$router.go(-1);
                     }
                 });
-            }
-        },
-        watch: {
-            active (val) {
-                if (this.active === true) {
-                    this.copyActive = val;
-                }
-            },
-            copyActive (val) {
-                if (this.copyActive === false) {
-                    this.$emit('switch-login-active');
-                }
             }
         }
     };
@@ -112,6 +105,10 @@
         padding-top: 12px;
         z-index: 1001;
 
+    }
+    .ui.error.text.menu {
+        margin-bottom: 10%;
+        padding-bottom: 0;
     }
     /*登录*/
     .ui.text.menu > .menu.login {
@@ -146,6 +143,13 @@
         width: 440px;
         background-color: #ffffff;
     }
+
+    .ui.form > .login-errors {
+        display: block;
+        position: absolute;
+        top: 7%;
+        color: darkred;
+    }
     /*黄色的button */
     .ui.login.container > .ui.circular.right.button {
         margin-left: 320px;
@@ -169,7 +173,7 @@
         background-color: #ffffff;
         position: relative;
         text-align: center;;
-        left: 250px;
+        left: 40%;
         text-decoration: underline;
     }
 </style>
