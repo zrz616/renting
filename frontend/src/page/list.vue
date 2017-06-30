@@ -10,7 +10,7 @@
                     <!--左边开始-->
                     <div class="four wide column shaixuan">
                         <div @click="submit" class="ui shaixuan">
-                          筛选
+                          <a style="color: #191711">筛选</a>
                         </div>
                         <div class="ui basic segment leixing">
                             <div class="ui" style="margin-left:15px;">
@@ -20,19 +20,19 @@
                                 <div class="inline fields">
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" name="frequency" checked="checked">
+                                            <input v-model="rentType" type="radio" name="frequency" value="whole" checked="checked">
                                             <label>整租</label>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" name="frequency">
+                                            <input v-model="rentType" type="radio" value="share" name="frequency">
                                             <label>合租</label>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input type="radio" name="frequency">
+                                            <input v-model="rentType" type="radio" value="month" name="frequency">
                                             <label>月租</label>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="ui form" style="margin-top:15px; margin-left:15px;">
                                 <div class="grouped fields">
-                                    <div v-for="device in device_list" class="field">
+                                    <div v-for="device in deviceList" class="field">
                                         <div class="ui checkbox">
                                         <input v-model="device.active" type="checkbox" name="example">
                                         <label>{{ device.device_name }}</label>
@@ -112,8 +112,8 @@
                                 默认排序
                                 <img src="/static/image/down_icon.png" style="height:13px;width:13px; margin-left:5px;" alt="" />
                                 <div class="menu">
-                                  <div @click="sorted_with_distance" class="item">距离</div>
-                                  <div @click="sorted_with_praise" class="item">评价</div>
+                                  <div @click="sortedWithDistance" class="item">距离</div>
+                                  <div @click="sortedWithPraise" class="item">评价</div>
                                   <div class="item">综合</div>
                                 </div>
                               </div>
@@ -123,8 +123,8 @@
                                 按价格
                                 <img src="/static/image/down_icon.png" style="height:13px;width:13px; margin-left:5px;" alt="" />
                                 <div class="menu">
-                                  <div @click="sorted_with_price" class="item">底到高</div>
-                                  <div @click="reversed_with_price" class="item">高到底</div>
+                                  <div @click="sortedWithPrice" class="item">底到高</div>
+                                  <div @click="reversedWithPrice" class="item">高到底</div>
                                 </div>
                               </div>
                             </div>
@@ -132,7 +132,7 @@
                         <div class="ui divider" style="margin-top:0px; margin-left:15px;margin-right:15px;"></div>
                         <div class="ui vertical mid_img">
                             <div class="ui three column grid first1">
-                                <div v-for="house in house_list" class="column_image">
+                                <div v-for="house in filterHouseList" class="column_image">
                                     <div class="image_mid" :style="{background: 'url(' + house.house_show_url + ')'}" style="background-position:left;background-size: cover;">
                                         <div class="ui price">
                                             <div style="color: white;font-size: 15px; position:relative;">
@@ -144,7 +144,7 @@
                                                 <a href="#"style="color:black">{{ house.address }} {{ house.rent_type }}</a>
                                             </div>
                                             <div v-for="point in house.position" style="font-size:12px; color:rgb(83, 82, 82)">
-                                                <span v-if="point.school === search_school">
+                                                <span v-if="point.school === searchSchool">
                                                   距{{ point.school }}{{ point.distance }}米
                                                 </span>
 
@@ -153,37 +153,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <v-paginate>
+                            <!--<v-paginate>
                               :page-count="5"
                               :click-handler="functionName"
-                              :prev-text="'Prev'"
-                              :next-text="'Next'"
-                              :container-class="'className'">
-                            </v-paginate>
-                            <!-- <div class="column right aligned page" style="position:relative;top:-1px;"></div> -->
-                            <!-- <div class="ui three column grid first1">
-                                <div class="column left aligned page " style="position:relative; top:5px;">
-                                    <button class="page button" type="button" name="button"><i class="angle left big icon"></i></button>
-                                </div>
-                                <div class="column page">
-                                    <div class="ui active button num">
-                                        1
+                              :prev-text="Prev"
+                              :next-text="Next"
+                              :container-class="className">
+                            </v-paginate>-->
+                             <div class="ui vertical container segment page" style="position:relative;top:-1px;bottom:400px;">
+                               <div class="ui three column grid first1">
+                                    <div class="column left aligned page " style="position:relative; top:5px;">
+                                        <button class="page button" type="button" name="button"><i class="angle left big icon"></i></button>
                                     </div>
-                                    <div class="ui button num">
-                                        2
+                                    <div class="column page">
+                                        <div @click="switchPage(page)" v-for="page in pageList" :class="{ active: isActive(page) }" class="ui button num">
+                                            {{ page }}
+                                        </div>
                                     </div>
-                                    <div class="ui button num">
-                                        3
-                                    </div>
-                                    <div class="ui button num">
-                                        4
+                                    <div class="column right aligned page" style="position:relative; top:-1px;">
+                                        <button class="page button" type="button" name="button"><i class="angle right big icon"></i></button>
                                     </div>
                                 </div>
-                                <div class="column right aligned page" style="position:relative; top:-1px;">
-                                    <button class="page button" type="button" name="button"><i class="angle right big icon"></i></button>
+                             </div>
 
-                                </div> -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,60 +194,107 @@
     export default {
         data () {
             return {
-                house_list: [1, 2, 3],
-                device_list: '',
-                paginate: ['house_list'],
-                search_school: ''
+                houseList: [1, 2, 3],
+                deviceList: '',
+                seleted_devices: '',
+                rentType: '整租',
+                paginate: ['houseList'],
+                searchSchool: '',
+                pageNums: 1,
+                currentPage: 1,
+                pageList: []
             };
         },
         methods: {
-            sorted_with_distance () {
+            sortedWithDistance () {
                 let self = this;
-                this.house_list = this.house_list.sort((a, b) => {
+                this.houseList = this.houseList.sort((a, b) => {
                     // console.log(a.position[0].distance);
                     let indexA = 0;
                     let indexB = 0;
                     a.position.forEach((elem, index) => {
-                        if (elem.school === self.search_school) {
+                        if (elem.school === self.searchSchool) {
                             indexA = index;
                         }
                     });
                     b.position.forEach((elem, index) => {
-                        if (elem.school === self.search_school) {
+                        if (elem.school === self.searchSchool) {
                             indexB = index;
                         }
                     });
                     return a.position[indexA].distance - b.position[indexB].distance;
                 });
-                console.log(this.house_list);
+                console.log(this.houseList);
             },
-            sorted_with_praise () {
-                this.house_list.sort((a, b) => {
+            sortedWithPraise () {
+                this.houseList.sort((a, b) => {
                     return a.favorite_nums - b.favorite_nums;
                 });
             },
-            sorted_with_price () {
-                this.house_list.sort((a, b) => {
+            sortedWithPrice () {
+                this.houseList.sort((a, b) => {
                     return a.price - b.price;
                 });
             },
-            reversed_with_price () {
-                this.house_list.sort((a, b) => {
+            reversedWithPrice () {
+                this.houseList.sort((a, b) => {
                     return b.price - a.price;
                 });
             },
             submit () {
-                this.device_list.forEach((elem) => {
-                    console.log(elem.active);
+                let self = this;
+                let selectDevice = [];
+                // 将选择的设备转换为字符串发送
+                this.deviceList.forEach((elem) => {
+                    if (elem.active) {
+                        selectDevice.push(elem.device_name);
+                    }
                 });
+                reqwest({
+                    // TODO
+                    url: 'http://127.0.0.1:8000/api/v1.0/selected_devices/',
+                    type: 'json',
+                    method: 'GET',
+                    data: {
+                        device_list: selectDevice,
+                        rent_type: self.rentType
+                    },
+                    success (resp) {
+                        console.log(resp);
+                        self.houseList = resp;
+                    }
+                });
+            },
+            switchPage (page) {
+                this.currentPage = page - 1;
+                console.log(this.currentPage);
+            },
+            isActive (page) {
+                return (page - 1 === this.currentPage);
             }
         },
         components: {
             'v-header': header,
             'v-paginate': Paginate
         },
+        watch: {
+//            currentPage () {
+//                console.log(this.currentPage);
+//                return this.houseList.slice((this.currentPage - 1) * 9, 9);
+//            }
+        },
+        computed: {
+            filterHouseList () {
+                this.pageNums = Math.floor(this.houseList.length / 9) + 1;
+                for (let index = 0; index < this.pageNums; index++) {
+                    this.pageList[index] = index + 1;
+                }
+                console.log((this.currentPage) * 9);
+                return this.houseList.slice(this.currentPage * 9, (this.currentPage + 1) * 9);
+            }
+        },
         mounted () {
-            this.search_school = this.$route.params.school_name;
+            this.searchSchool = this.$route.params.school_name;
             let self = this;
             reqwest({
                 url: 'http://127.0.0.1:8000/api/v1.0/house_cards/' + self.$route.params.school_name,
@@ -264,7 +303,7 @@
                 method: 'GET',
                 success (resp) {
                     console.log(resp);
-                    self.house_list = resp;
+                    self.houseList = resp;
                 }
             });
             reqwest({
@@ -273,8 +312,8 @@
                 method: 'GET',
                 success (resp) {
                     console.log(resp);
-                    self.device_list = resp;
-                    self.device_list.forEach((elem) => {
+                    self.deviceList = resp;
+                    self.deviceList.forEach((elem) => {
                         elem.active = false;
                     });
                 }
@@ -450,6 +489,11 @@
         height: 40px;
         margin: 0px;
         margin: 5px 0 0 0;
+    }
+
+    .ui.vertical.mid_img > .ui.vertical.container.segment.page {
+
+        /*bottom: 400px !important;*/
     }
 
     /*数字按钮*/

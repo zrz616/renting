@@ -1,3 +1,7 @@
+from operator import or_, and_
+from functools import reduce
+
+from django.db.models import Q
 from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -86,3 +90,19 @@ def devices(request):
     device_list = Device.objects.all()
     serializer = DeviceSerializers(device_list, many=True, context={'request': request})
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def filter_devices(request):
+    if request.method == 'GET':
+        print(request.GET)
+        device_list = []
+        device_list.extend([value for value in request.GET.getlist('device_list[]')])
+        print(device_list)
+        q_objects = [Q(device__device_name__contains=device) for device in device_list]
+        f = reduce(or_, q_objects)
+        house = House.objects.filter(f).filter(rent_type=request.GET['rent_type'])
+        # house = House.objects.filter(f).filter(rent_type='whole')
+        print(house)
+        serializer = HouseSerializers(house, many=True, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
