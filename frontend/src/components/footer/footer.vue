@@ -65,7 +65,7 @@
 <script>
 </script>
 
-<style>
+<style scoped>
     /*do not repeat yourself*/
     .ui.vertical.segment.footer {
         height: 281px;

@@ -83,7 +83,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     .ui.vertical.basic.segment.displaywindow {
         height: 753px;
         background-image: url('/static/image/租房项目切图/1首页/photo_bg.png');

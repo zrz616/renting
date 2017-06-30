@@ -52,7 +52,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     /*--------------------------------searchpanel--------------------------------*/
     .ui.vertical.basic.segment.seachpanel {
         height: 109px;

@@ -20,7 +20,7 @@
                                 <div class="inline fields">
                                     <div class="field">
                                         <div class="ui radio checkbox">
-                                            <input v-model="rentType" type="radio" name="frequency" value="whole" checked="checked">
+                                            <input v-model="rentType" type="radio" name="frequency" value="whole">
                                             <label>整租</label>
                                         </div>
                                     </div>
@@ -197,11 +197,11 @@
                 houseList: [1, 2, 3],
                 deviceList: '',
                 seleted_devices: '',
-                rentType: '整租',
+                rentType: 'whole',
                 paginate: ['houseList'],
                 searchSchool: '',
                 pageNums: 1,
-                currentPage: 1,
+                currentPage: 0,
                 pageList: []
             };
         },
